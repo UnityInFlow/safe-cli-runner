@@ -5,7 +5,8 @@ name: Release
 # the owner's machine, because the trusted publisher is configured on PyPI
 # after the project exists (see docs/TODO.md).
 #
-# The UnityInFlow org allows only actions/checkout@* in public repos, so this
+# The UnityInFlow org allows only actions/checkout@* in public repos (SHA
+# pinned), so this
 # uses `uv publish --trusted-publishing always` (uv's native OIDC exchange)
 # instead of pypa/gh-action-pypi-publish, and no artifact actions.
 
@@ -24,7 +25,7 @@ jobs:
       contents: write
       id-token: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: Install uv
         run: |

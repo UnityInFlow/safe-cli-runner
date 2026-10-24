@@ -1,7 +1,8 @@
 name: CI
 
-# The UnityInFlow org allows only actions/checkout@* in public repos, so uv is
-# installed from its release script (pinned) instead of astral-sh/setup-uv.
+# The UnityInFlow org allows only actions/checkout@* in public repos and
+# requires full-SHA pinning, so uv is installed from its release script
+# (pinned) instead of astral-sh/setup-uv.
 
 on:
   push:
@@ -29,7 +30,7 @@ jobs:
         os: [ubuntu-latest, macos-latest]
         python: ["3.12", "3.13"]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: Install uv
         run: |

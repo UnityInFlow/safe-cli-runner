@@ -6,9 +6,9 @@ name: Release
 # after the project exists (see docs/TODO.md).
 #
 # The UnityInFlow org allows only actions/checkout@* in public repos (SHA
-# pinned), so this
-# uses `uv publish --trusted-publishing always` (uv's native OIDC exchange)
-# instead of pypa/gh-action-pypi-publish, and no artifact actions.
+# pinned), so this uses `uv publish --trusted-publishing always` (uv's native
+# OIDC exchange) instead of pypa/gh-action-pypi-publish, and no artifact
+# actions.
 
 on:
   push:

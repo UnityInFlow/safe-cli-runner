@@ -29,6 +29,10 @@ jobs:
       matrix:
         os: [ubuntu-latest, macos-latest]
         python: ["3.12", "3.13"]
+    env:
+      # Every uv command in the job uses this interpreter; otherwise `uv run`
+      # falls back to .python-version (3.12) and re-creates the venv.
+      UV_PYTHON: ${{ matrix.python }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
@@ -38,7 +42,7 @@ jobs:
           echo "$HOME/.local/bin" >> "$GITHUB_PATH"
 
       - name: Sync (all extras)
-        run: uv sync --all-extras --python ${{ matrix.python }}
+        run: uv sync --all-extras
 
       - name: Lint
         run: uv run ruff check

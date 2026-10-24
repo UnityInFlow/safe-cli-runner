@@ -50,4 +50,4 @@ ADR-038; this ADR is the record in the new repository.
 
 - `docs/reviews/2026-10-24-deep-dive-and-plan.md` (this repo)
 - Origin ADR-038 "Extract the CLI runner; freeze the platform" (private, ai-jervis-python#373)
-- Tracking issue #15
+- Tracking issue #16

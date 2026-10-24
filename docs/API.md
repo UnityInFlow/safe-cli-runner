@@ -1,7 +1,7 @@
 # Planned public API (v0.1)
 
 Status (2026-10-24): design only, nothing implemented. This is the contract the
-port in issues #1 to #7 implements; changes to it go through an ADR.
+port in issues #2 to #8 implements; changes to it go through an ADR.
 
 ```python
 from safe_cli_runner import Runner, RunnerConfig, ApiKey, OwnLogin, Sandbox, run, stream

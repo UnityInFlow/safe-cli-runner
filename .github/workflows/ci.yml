@@ -1,5 +1,8 @@
 name: CI
 
+# The UnityInFlow org allows only actions/checkout@* in public repos, so uv is
+# installed from its release script (pinned) instead of astral-sh/setup-uv.
+
 on:
   push:
     branches: [main]
@@ -13,6 +16,9 @@ concurrency:
   group: ci-${{ github.ref }}
   cancel-in-progress: true
 
+env:
+  UV_VERSION: "0.11.32"
+
 jobs:
   test:
     name: ${{ matrix.os }} / py${{ matrix.python }}
@@ -25,13 +31,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: astral-sh/setup-uv@v5
-        with:
-          enable-cache: true
-          python-version: ${{ matrix.python }}
+      - name: Install uv
+        run: |
+          curl -LsSf "https://astral.sh/uv/${UV_VERSION}/install.sh" | sh
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
 
       - name: Sync (all extras)
-        run: uv sync --all-extras
+        run: uv sync --all-extras --python ${{ matrix.python }}
 
       - name: Lint
         run: uv run ruff check

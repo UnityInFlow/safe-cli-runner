@@ -46,3 +46,7 @@ then on v0.1 users.
 - [ ] v0.2 OS sandbox tier: ADR-002, seatbelt profile + `bwrap` argv builder, Codex / Gemini / OpenCode enabled, "read ~/.ssh yields nothing" test on both OSes ([#14](https://github.com/UnityInFlow/safe-cli-runner/issues/14), 12 h)
 - [ ] Posts 2 to 5 (manual, owner's site, ~7 h)
 - [ ] v0.3 CONTAINER tier + credential proxy (`ANTHROPIC_BASE_URL` broker) + per-call spend ceiling ([#15](https://github.com/UnityInFlow/safe-cli-runner/issues/15), not estimated)
+
+## 2026-10-25 analysis
+
+Read `docs/reviews/2026-10-25-fable-analysis.md` before starting the v0.1.0 items. It reorders them: port #2 and #3 and release `0.1.0a1` before post 1 (#12); Claude Code only in v0.1 (#5 shrinks); `--max-turns 1` and fresh `HOME` in API-key mode (#3, #6); `OwnLogin` out of the top-level export (#6); gate default off (#4, owner decision); Python 3.14 in CI (#9); `LockdownViolation` is a hard failure (#7).
